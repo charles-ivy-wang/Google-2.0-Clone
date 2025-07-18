@@ -1,7 +1,67 @@
 .sidebar{
-    min-height: 100vh;
-    display: flex;
+    min-height: 100vh; /* min-height is the minimum height of the side bar, vh = viewport height, so the sidebar strech to fill the screen no matter what*/ 
+    display: flex; 
     flex-direction: column;
     background-color: #f0f4f9;
     justify-content: space-between;
+    padding: 25px 15px;
+}
+
+.sidebar img{ /* since there is no . infront of the img, all img inside of sidebar has the same css code block */
+    width: 20px;
+}
+
+.sidebar .menu{ /* targets a specific element with class menu that is inside class sidebar. */
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.sidebar .new-chat{
+    margin-left: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #e6eaf1;
+    border-radius: 50px;
+    color: gray;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sidebar .recent{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .recent-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar .recent-entry{
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    padding-right: 50px;
+    cursor: pointer;
+    border-radius: 50px;
+    color: #282828;
+}
+
+.sidebar .recent-entry:hover{
+    background-color: #e2e6eb;
+}
+
+.sidebar .bottom{
+    display:flex;
+    flex-direction: column;
+}
+
+.sidebar .bottom-items{
+    padding-right: 10px;
+    cursor: pointer;
 }
