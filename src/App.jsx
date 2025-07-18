@@ -1,12 +1,12 @@
-import React from 'react'
-import Sidebar from './components/side_bar_comp/Sidebar'
+import React from "react";
+import Sidebar from "./components/side_bar_comp/Sidebar";
 
 const App = () => {
-  return ( 
+  return (
     <>
-      <Sidebar/> 
+      <Sidebar />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
