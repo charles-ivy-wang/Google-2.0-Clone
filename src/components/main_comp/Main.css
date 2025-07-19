@@ -64,7 +64,7 @@
   right: 10px;
 }
 
-.main .card p{
+.main .card p {
   color: #585858;
   font-size: 17px;
 }
@@ -73,7 +73,7 @@
   background-color: #dfe4ea;
 }
 
-.main .main-bottom{
+.main .main-bottom {
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -82,7 +82,7 @@
   padding: 0px 20px;
 }
 
-.main .search-box{
+.main .search-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,14 +99,14 @@
 
 .main .search-box input {
   flex: 1;
-  outline:none;
+  outline: none;
   background: transparent;
   border: none;
-  padding:8px;
+  padding: 8px;
   font-size: 18px;
 }
 
-.main .search-box div{
+.main .search-box div {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -118,4 +118,33 @@
   text-align: center;
   margin: 10px auto;
   color: #c4c7c5;
+}
+
+.main .result {
+  padding: 0px 5%;
+  max-height: 70vh;
+  overflow-y: scroll; /* this allows us to scroll within main frame */
+}
+
+.main .result::-webkit-scrollbar {
+  display: none;
+  /* this allows the webpage to hide scroll bar*/
+}
+
+.main .resultTitle {
+  margin: 40px 0px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.main .result img{ /* .result img applys the style to both img */
+  width: 40px;
+  border-radius: 50%;
+}
+
+.main .resultData {
+  display: flex;
+  align-items: start;
+  gap: 20px;
 }

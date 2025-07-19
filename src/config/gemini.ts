@@ -8,7 +8,7 @@ import {
   GoogleGenAI,
 } from '@google/genai';
 
-async function runChat(prompt: string): Promise<void> { // use prompt as input for the function to run, use the typing
+async function runChat(prompt: string) { // use prompt as input for the function to run, use the typing
   const ai = new GoogleGenAI({
     apiKey: apiKey,
   });
@@ -43,9 +43,13 @@ async function runChat(prompt: string): Promise<void> { // use prompt as input f
     contents,
   });
   let fileIndex = 0;
+  let fullText = "";
   for await (const chunk of response) {
     console.log(chunk.text);
+    fullText += chunk.text;
   }
+
+  return fullText; 
 }
 
 export default runChat; // allows the function run in the project
