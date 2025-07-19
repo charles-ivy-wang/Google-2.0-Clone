@@ -15,21 +15,42 @@ const ContextProvider = (props) => {
   const [loading, setLoading] = useState(false); // true, loading animation
   const [resultData, setResultData] = useState(""); // display result on the page
 
+  // function for typing animation
   const delayPara = (index, nextWord) => {
     setTimeout(function () {
       setResultData((prev) => prev + nextWord);
     }, 75 * index);
   };
 
+  const startNewChat = () => {
+    setLoading(false)
+    setShowResults(false)
+  }
+  
   const onSent = async (prompt) => {
     // his function is triggered when the user sends a prompt, function defined to call API with input prompt
     // the set functions changes the state variables to change UI and fetch response from API
     setResultData("");
     setLoading(true);
     setShowResults(true);
-    setRecentPrompt(input);
-    setInput("");
-    const response = await runChat(input); // async function, need time for operations, so await the runChat (API function)
+    let response;
+    if (prompt !== undefined) {
+      response = await runChat(prompt);
+      setRecentPrompt(prompt);
+
+      // Only add if it's not already in history
+      setPrevPrompts((prev) => {
+        if (prev.includes(prompt)) return prev;
+        return [...prev, prompt];
+      });
+    } else {
+      setPrevPrompts((prev) => [...prev, input]);
+      setRecentPrompt(input);
+      setInput("");
+      response = await runChat(input);
+    }
+
+    // async function, need time for operations, so await the runChat (API function)
 
     // code block replaces all the different * ** // etc with correct html tags
     const htmlResponse = DOMPurify.sanitize(marked.parse(response));
@@ -60,6 +81,7 @@ const ContextProvider = (props) => {
     resultData,
     input,
     setInput,
+    startNewChat
   };
 
   /*

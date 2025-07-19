@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Sidebar.css";
 import { assets } from "../../assets/assets.js"; // uploads the assets objects from the export const in the js file, since it assums assets is a js file, no need of .js tbh
 import { useState } from "react";
+import { Context } from "../../context/Context.jsx";
 
 const Sidebar = () => {
   const [extended, setExtended] = useState(false);
+  const { onSent, prevPrompts, setRecentPrompt, startNewChat } = useContext(Context);
+
+  const loadPrompt = async (prompt) => {
+    setRecentPrompt(prompt);
+    await onSent(prompt);
+  };
 
   return (
     <div className="sidebar">
@@ -16,7 +23,7 @@ const Sidebar = () => {
           alt=""
         />
 
-        <div className="new-chat">
+        <div onClick={()=> startNewChat()} className="new-chat">
           <img src={assets.plus_icon} alt="" />
           {extended ? <p>New Chat</p> : null}
         </div>
@@ -24,10 +31,14 @@ const Sidebar = () => {
         {extended ? (
           <div className="recent">
             <p className="recent-title">Recent</p>
-            <div className="recent-entry">
-              <img src={assets.message_icon} alt="" />
-              <p>What is react ...</p>
-            </div>
+            {prevPrompts.map((item, index) => {
+              return (
+                <div onClick={() => loadPrompt(item)} className="recent-entry">
+                  <img src={assets.message_icon} alt="" />
+                  <p>{item.length > 15 ? item.slice(0, 15) + "..." : item}</p>
+                </div>
+              );
+            })}
           </div>
         ) : null}
       </div>
