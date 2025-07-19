@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import runChat from "../config/gemini";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import samplePrompts from "./samplePrompt";
 
 export const Context = createContext();
 
@@ -14,6 +15,16 @@ const ContextProvider = (props) => {
   const [showResults, setShowResults] = useState(false); // if true, hide all the cards and show results
   const [loading, setLoading] = useState(false); // true, loading animation
   const [resultData, setResultData] = useState(""); // display result on the page
+  const [randomCards, setRandomCards] = useState([])
+
+  // function to generate random card prompts
+  useEffect(() => {
+  generateRandomCards();
+  }, []);
+  const generateRandomCards = () => {
+    const shuffled = [...samplePrompts].sort(() => 0.5 - Math.random());
+    setRandomCards(shuffled.slice(0, 4)); // sets it to 4 random different prompts
+  };
 
   // function for typing animation
   const delayPara = (index, nextWord) => {
@@ -81,7 +92,9 @@ const ContextProvider = (props) => {
     resultData,
     input,
     setInput,
-    startNewChat
+    startNewChat,
+    randomCards,
+    generateRandomCards
   };
 
   /*

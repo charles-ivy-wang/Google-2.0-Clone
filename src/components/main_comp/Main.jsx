@@ -13,6 +13,7 @@ const Main = () => {
     resultData,
     setInput,
     input,
+    randomCards
   } = useContext(Context);
 
   return (
@@ -33,23 +34,23 @@ const Main = () => {
             </div>
 
             <div className="cards-group">
-              <div className="card">
-                <p>Provide an overview of Neural Networks</p>
+              <div className="card" onClick={() => onSent(randomCards[0])}>
+                <p>{randomCards[0]}</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
 
-              <div className="card">
-                <p>Suggest budget-friendly restaurants in New York City</p>
+              <div className="card" onClick={() => onSent(randomCards[1])}>
+                <p>{randomCards[1]}</p>
                 <img src={assets.bulb_icon} alt="" />
               </div>
 
-              <div className="card">
-                <p>Brainstorm family activities for the weekend</p>
+              <div className="card" onClick={() => onSent(randomCards[2])}>
+                <p>{randomCards[2]}</p>
                 <img src={assets.message_icon} alt="" />
               </div>
 
-              <div className="card">
-                <p>Teach me different libraries of Javascript</p>
+              <div className="card" onClick={() => onSent(randomCards[3])}>
+                <p>{randomCards[3]}</p>
                 <img src={assets.code_icon} alt="" />
               </div>
             </div>
