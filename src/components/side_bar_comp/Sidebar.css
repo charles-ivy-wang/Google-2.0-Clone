@@ -35,6 +35,7 @@
 .sidebar .recent {
   display: flex;
   flex-direction: column;
+  animation: fadeIn 1.5s;
 }
 
 .sidebar .recent-title {
@@ -66,4 +67,12 @@
 .sidebar .bottom-items {
   padding-right: 10px;
   cursor: pointer;
+}
+
+/* checks the screen width of the device.
+The styles inside this block will only apply if the screen width is 600 pixels or less (typically phones or small tablets).*/
+@media (max-width:600px) {
+  .sidebar {
+    display: none;
+  }
 }

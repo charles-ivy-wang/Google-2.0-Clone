@@ -20,7 +20,7 @@ const Main = () => {
     <div className="main">
       <div className="nav">
         <p>Gemini</p>
-        <img src={assets.user_icon} alt="" />
+        <img src={assets.head_shot} alt="" />
       </div>
 
       <div className="main-container">
@@ -58,7 +58,7 @@ const Main = () => {
         ) : (
           <div className="result">
             <div className="resultTitle">
-              <img src={assets.user_icon} alt="" />
+              <img src={assets.head_shot} alt="" />
               <p>{recentPrompt}</p>
             </div>
 
@@ -100,7 +100,7 @@ const Main = () => {
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
-              <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+              {input?<img onClick={() => onSent()} src={assets.send_icon} alt="" />:null}
             </div>
           </div>
           <p className="disclaimer">
