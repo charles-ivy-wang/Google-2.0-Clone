@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
-import DOMPurify from 'dompurify'
+import DOMPurify from "dompurify";
 
 const Main = () => {
   const {
@@ -58,13 +58,26 @@ const Main = () => {
           <div className="result">
             <div className="resultTitle">
               <img src={assets.user_icon} alt="" />
-              <p>{recentPrompt}</p> 
+              <p>{recentPrompt}</p>
             </div>
 
             <div className="resultData">
               <img src={assets.gemini_icon} alt="" />
-              <p dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(resultData)}}></p>
-              {/* dompurify sanitizes before we hide the tags*/}
+              {loading ? (
+                /* the loading animation*/
+                <div className="loader">
+                  <hr />
+                  <hr />
+                  <hr />
+                </div>
+              ) : (
+                /* dompurify sanitizes before we hide the tags*/
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: resultData,
+                  }}
+                ></p>
+              )}
             </div>
           </div>
         )}
@@ -74,8 +87,14 @@ const Main = () => {
             <input
               onChange={(e) => setInput(e.target.value)}
               value={input}
-              type="text" 
+              type="text"
               placeholder="Ask Gemini"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && input.trim() !== "") {
+                  // return key work as well, however, only when there is text
+                  onSent();
+                }
+              }}
             />
             <div>
               <img src={assets.gallery_icon} alt="" />

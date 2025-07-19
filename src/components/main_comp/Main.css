@@ -138,7 +138,8 @@
   gap: 20px;
 }
 
-.main .result img{ /* .result img applys the style to both img */
+.main .result img {
+  /* .result img applys the style to both img */
   width: 40px;
   border-radius: 50%;
 }
@@ -147,4 +148,37 @@
   display: flex;
   align-items: start;
   gap: 20px;
+}
+
+.main .loader {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.main .loader hr {
+  border-radius: 20px;
+  border: none;
+  background-color: f6f7f8;
+  background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff);
+  background-size: 800px 50px;
+  height: 20px;
+  animation: loader 3s infinite linear;
+}
+
+@keyframes loader { /* this tells the animation sequence: from left to right, starting at -800 to 800*/
+  0% {
+    background-position: -800px 0px;
+  }
+  100% {
+    background-position: 800px 0px;
+  }
+}
+
+.main .resultData p{
+  color: black;
+  font-size: 16px;
+  font-weight: 350;
+  line-height: 1.5;
 }
