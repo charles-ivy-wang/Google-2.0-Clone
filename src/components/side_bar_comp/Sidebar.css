@@ -5,6 +5,7 @@
   background-color: #f0f4f9;
   justify-content: space-between;
   padding: 25px 15px;
+  width: 80px;
 }
 
 .sidebar img {
@@ -36,6 +37,12 @@
   display: flex;
   flex-direction: column;
   animation: fadeIn 1.5s;
+}
+
+.sidebar .recent-entry p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sidebar .recent-title {
@@ -71,8 +78,31 @@
 
 /* checks the screen width of the device.
 The styles inside this block will only apply if the screen width is 600 pixels or less (typically phones or small tablets).*/
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .sidebar {
     display: none;
   }
+}
+
+.sidebar {
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.extended {
+  width: 200px;
+}
+
+.menu-text,
+.recent-title {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.menu-text.visible,
+.recent-title.visible {
+  opacity: 1;
+  transform: translateX(0);
 }

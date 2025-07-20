@@ -14,7 +14,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${extended ? 'extended' : ''}`}>
       <div className="top">
         <img
           onClick={() => setExtended((prev) => !prev)}
@@ -30,7 +30,7 @@ const Sidebar = () => {
 
         {extended ? (
           <div className="recent">
-            <p className="recent-title">Recent</p>
+            <p className={`recent-title ${extended ? 'visible' : 'hidden'}`}>Recent</p>
             {prevPrompts.map((item, index) => {
               return (
                 <div onClick={() => loadPrompt(item)} className="recent-entry">
@@ -46,17 +46,17 @@ const Sidebar = () => {
       <div className="bottom">
         <div className="bottom-items recent-entry">
           <img src={assets.question_icon} alt="" />
-          {extended ? <p>Help</p> : null}
+          <p className={`menu-text ${extended ? 'visible' : 'hidden'}`}>Help</p>
         </div>
 
         <div className="bottom-items recent-entry">
           <img src={assets.history_icon} alt="" />
-          {extended ? <p>Activity</p> : null}
+          <p className={`menu-text ${extended ? 'visible' : 'hidden'}`}>Activity</p>
         </div>
 
         <div className="bottom-items recent-entry">
           <img src={assets.setting_icon} alt="" />
-          {extended ? <p>Settings</p> : null}
+          <p className={`menu-text ${extended ? 'visible' : 'hidden'}`}>Settings</p>
         </div>
       </div>
     </div>

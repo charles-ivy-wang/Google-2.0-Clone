@@ -13,7 +13,7 @@ const Main = () => {
     resultData,
     setInput,
     input,
-    randomCards
+    randomCards,
   } = useContext(Context);
 
   return (
@@ -34,22 +34,46 @@ const Main = () => {
             </div>
 
             <div className="cards-group">
-              <div className="card" onClick={() => onSent(randomCards[0])}>
+              <div
+                className="card"
+                onClick={() => {
+                  setInput(randomCards[0]);
+                  onSent(randomCards[0]);
+                }}
+              >
                 <p>{randomCards[0]}</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
 
-              <div className="card" onClick={() => onSent(randomCards[1])}>
+              <div
+                className="card"
+                onClick={() => {
+                  setInput(randomCards[1]);
+                  onSent(randomCards[1]);
+                }}
+              >
                 <p>{randomCards[1]}</p>
                 <img src={assets.bulb_icon} alt="" />
               </div>
 
-              <div className="card" onClick={() => onSent(randomCards[2])}>
+              <div
+                className="card"
+                onClick={() => {
+                  setInput(randomCards[2]);
+                  onSent(randomCards[2]);
+                }}
+              >
                 <p>{randomCards[2]}</p>
                 <img src={assets.message_icon} alt="" />
               </div>
 
-              <div className="card" onClick={() => onSent(randomCards[3])}>
+              <div
+                className="card"
+                onClick={() => {
+                  setInput(randomCards[2]);
+                  onSent(randomCards[2]);
+                }}
+              >
                 <p>{randomCards[3]}</p>
                 <img src={assets.code_icon} alt="" />
               </div>
@@ -100,7 +124,9 @@ const Main = () => {
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
-              {input?<img onClick={() => onSent()} src={assets.send_icon} alt="" />:null}
+              {input ? (
+                <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+              ) : null}
             </div>
           </div>
           <p className="disclaimer">
