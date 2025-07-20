@@ -1,5 +1,5 @@
 # Gemini Clone
-This is a Gemini clone project built to practice and strengthen core React concepts such as hooks, context API, and component design. The project was completed over the course of three days and serves as a hands-on learning tool to reinforce React fundamentals while also experimenting with UI behavior and API integration.
+This is a Gemini clone project built to practice and strengthen core React concepts such as hooks, context API, and component design. The project was completed over the course of three days and serves as a hands-on learning tool to reinforce React fundamentals while also experimenting with UI behavior and API integration. <b>A detailed design document is coming soon!</b>
 
 ### 🚀 Features
 - Interactive flashcard-style prompt suggestions, randomly generated
@@ -42,7 +42,9 @@ src/
 This project is inspired by a -[YouTube tutorial](https://www.youtube.com/watch?v=0yboGn8errU&list=PLjwm_8O3suyMMs7kfDD-p-yIhlmEgJkDj) by  GreatStake, and adapted for deeper learning and customization.
 
 ### Potential Improvements of this project
-- The prompt and previous chat should save in the same page instead loading into a new page
-- Better animation 
-- Larger suggestion promp pool
-- Functionality added to the sidebar buttons (help, etc)
+- Prompts and previous chats should be saved and displayed on the same page, rather than loading into a new one.
+- Improved animations for a smoother user experience.
+- Expanded pool of suggested prompts for more variety.
+- Sidebar buttons (e.g., Help, etc.) should have functional behavior implemented.
+
+
