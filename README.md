@@ -1,12 +1,48 @@
-# React + Vite
+# Gemini Clone
+This is a Gemini clone project built to practice and strengthen core React concepts such as hooks, context API, and component design. The project was completed over the course of three days and serves as a hands-on learning tool to reinforce React fundamentals while also experimenting with UI behavior and API integration.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🚀 Features
+- Interactive flashcard-style prompt suggestions, randomly generated
+- Sidebar animation enhanced with custom behavior
+- Pressing the Enter key triggers prompt submission
+- Prompts can be saved and displayed as recent history
+- Core logic and styling largely follow the original tutorial, but with customized implementations
 
-Currently, two official plugins are available:
+### 🧠 Technologies Used
+- React (Hooks, Context API)
+- Gemini 2.5 SDK (API integration using TypeScript)
+- Marked for markdown parsing
+- DOMPurify for sanitizing rendered content
+- Custom CSS for animations and styling
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔍 Key Differences from the Original YouTube Tutorial
+While the majority of the functionality and UI is based on the video tutorial used as a guide, this version introduces several improvements and changes:
 
-## Expanding the ESLint configuration
+  - Sidebar Animation: Custom animation logic diverges from the original, with a different implementation approach
+  - Flashcard Prompt Generator: Random prompts appear on cards, adding interactivity
+  - Keyboard Trigger: Enter key can be used to submit prompts (in addition to button click)
+  - Recent Prompts Saving: Refactored and implemented differently from the original method
+  - API Integration: Gemini SDK code is written in TypeScript rather than JavaScript
+  - Markdown paragraph cleanse
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📁 Project Structure (Simplified)
+bash
+Copy
+Edit
+src/
+│
+├── components/         # React UI components
+├── config/             # Gemini SDK setup
+├── context/            # React Context setup
+├── assets/             # Icons, images
+├── App.jsx             # Main application layout
+└── main.jsx            # Entry point
+
+### 📽️ Reference
+This project is inspired by a -[YouTube tutorial](https://www.youtube.com/watch?v=0yboGn8errU&list=PLjwm_8O3suyMMs7kfDD-p-yIhlmEgJkDj) by  GreatStake, and adapted for deeper learning and customization.
+
+### Potential Improvements of this project
+- The prompt and previous chat should save in the same page instead loading into a new page
+- Better animation 
+- Larger suggestion promp pool
+- Functionality added to the sidebar buttons (help, etc)
